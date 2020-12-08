@@ -5,6 +5,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
+import LandingPage from '../LandingPage/LandingPage'
 
 class App extends Component {
   state = {
@@ -27,6 +28,9 @@ class App extends Component {
           user={this.state.user}
           handleLogout={this.handleLogout}
         />
+        <LandingPage
+          user={this.state.user} />
+
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
             history={history}
