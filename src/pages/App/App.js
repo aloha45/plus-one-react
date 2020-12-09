@@ -5,11 +5,24 @@ import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
-import LandingPage from '../LandingPage/LandingPage'
+import LandingHeader from '../../components/LandingHeader/LandingHeader';
+import Card from '../../components/Card/Card'
 
 class App extends Component {
   state = {
-    user: userService.getUser()
+    user: userService.getUser(),
+  }
+
+  handleYep(profile) {
+    this.state.user.yepArr.push(profile)
+    console.log(this.state.user)
+    // need to set state with new user profile array and also save in the database
+  }
+
+  handleNope(profile) {
+    this.state.user.nopeArr.push(profile)
+    console.log(this.state.user)
+    // need to set state with new user profile array and also save in the database
   }
 
   handleLogout = () => {
@@ -28,8 +41,13 @@ class App extends Component {
           user={this.state.user}
           handleLogout={this.handleLogout}
         />
-        <LandingPage
+        <LandingHeader
           user={this.state.user} />
+          
+        <Card 
+          handleYep={this.handleYep}
+          handleNope={this.handleNope} />
+        
 
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
