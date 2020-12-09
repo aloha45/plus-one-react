@@ -58,6 +58,7 @@ class Card extends Component {
             return response.json()
         })
         .then((data) => {
+            console.log(data)
             const picture = data[parseInt(Math.floor(Math.random() * Math.floor(30)))].download_url;
             // profiles.push(newProfile);
             this.setState({
