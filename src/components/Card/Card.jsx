@@ -10,9 +10,22 @@ class Card extends Component {
      }
 
      handleYepClick = () => {
-         this.getProfile();
-         this.getProfilePic();
+        const click = new Audio('audio/click.wav');
+        this.getProfilePic();
+        this.getProfile();
+        this.props.handleYep();
+        //  click.play()
+        console.log('yep')
      }
+
+     handleNopeClick = () => {
+        const snap = new Audio('audio/snap.wav');
+        this.getProfilePic();
+        this.getProfile();
+        this.props.handleNope();
+        // snap.play()
+        console.log('nope')
+    }
 
      async getProfile(){
         await fetch("https://randomuser.me/api/")
@@ -20,11 +33,19 @@ class Card extends Component {
             return response.json()
         })
         .then((data) => {
+            console.log(data)
             const name = data.results[0].name.first;
             const city = data.results[0].location.city;
             const age = data.results[0].dob.age;
             // profiles.push(newProfile);
-            console.log(name, city, age)
+            this.setState({
+                name: this.state.profile.name,
+                city: this.state.profile.city,
+                age: this.state.profile.age
+            }, () => {
+                console.log(this.state.profile)
+            })
+            console.log(name, city, age);
         })
         .catch((err) => {
             console.log(err)
@@ -39,6 +60,11 @@ class Card extends Component {
         .then((data) => {
             const picture = data[parseInt(Math.floor(Math.random() * Math.floor(30)))].download_url;
             // profiles.push(newProfile);
+            this.setState({
+                picture: this.state.profile.picture
+            }, () => {
+                console.log(this.state.profile)
+            })
             console.log(picture)
         })
         .catch((err) => {
@@ -51,8 +77,8 @@ class Card extends Component {
             <React.Fragment>
                 <h4>Dating Card goes here</h4>
                 <div>
-                    <button>Yep</button>
-                    <button>Nope</button>
+                    <button onClick={this.handleYepClick}>Yep</button>
+                    <button onClick={this.handleNopeClick}>Nope</button>
                 </div>
             </React.Fragment>
          );

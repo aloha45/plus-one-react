@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
@@ -14,14 +14,14 @@ class App extends Component {
   }
 
   handleYep(profile) {
-    this.state.user.yepArr.push(profile)
-    console.log(this.state.user)
+    // this.state.user.yepArr.push(profile)
+    // console.log(this.state.user)
     // need to set state with new user profile array and also save in the database
   }
 
   handleNope(profile) {
-    this.state.user.nopeArr.push(profile)
-    console.log(this.state.user)
+    // this.state.user.nopeArr.push(profile)
+    // console.log(this.state.user)
     // need to set state with new user profile array and also save in the database
   }
 
