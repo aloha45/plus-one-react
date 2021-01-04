@@ -80,8 +80,9 @@ class Card extends Component {
                 <div className='card'>
                     <img id='profilePic' src={this.state.picture} alt='profile pic' />
                     <div id='profileData'>
-                        <h4>{this.state.name}, {this.state.age}</h4>
-                        <h4>{this.state.city}</h4>
+                        <h4>{this.state.name}</h4>
+                        <h5>{this.state.age} years old</h5>
+                        <h5>{this.state.city}</h5>
                     </div>
                 </div>
                 <div className='buttonDiv'>

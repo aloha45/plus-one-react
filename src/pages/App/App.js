@@ -7,6 +7,9 @@ import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
 import LandingHeader from '../../components/LandingHeader/LandingHeader';
 import Card from '../../components/Card/Card'
+import GreetingPage from '../GreetingPage/GreetingPage'
+import ProfilePage from '../ProfilePage/ProfilePage'
+import SwipingPage from '../SwipingPage/SwipingPage'
 
 class App extends Component {
   state = {
@@ -37,17 +40,21 @@ class App extends Component {
   render () {
     return (
       <>
+      {this.state.user ? 
+        <>
         <NavBar 
           user={this.state.user}
-          handleLogout={this.handleLogout}
-        />
+          handleLogout={this.handleLogout} />
         <LandingHeader
           user={this.state.user} />
-          
         <Card 
           handleYep={this.handleYep}
-          handleNope={this.handleNope} />
-        
+          handleNope={this.handleNope} /> 
+          </>
+        // {/* <SwipingPage /></> */}
+          :
+        <GreetingPage />
+      }
 
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
@@ -59,6 +66,11 @@ class App extends Component {
           <LoginPage
             history={history}
             handleSignupOrLogin={this.handleSignupOrLogin}
+          />
+        }/>
+        <Route exact path='/profile' render={({ history }) => 
+          <ProfilePage
+            history={history}
           />
         }/>
       </>

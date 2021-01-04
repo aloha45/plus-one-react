@@ -44,8 +44,8 @@ body {
 }
 .nav {
   width: 100%;
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
 }
 .nav-wrapper {
   background-color: rgba(192, 106, 232, 0.742);
