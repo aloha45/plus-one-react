@@ -1,0 +1,33 @@
+.card {
+    display: flex;
+    text-align: left;
+    margin: 0 auto;
+    background-color: lavender;
+    width: 600px
+}
+
+#profilePic {
+    max-width: 200px;
+}
+
+#profileData {
+    margin-left: 10px;
+    border-left: black;
+    border-width: 5px;
+}
+
+.buttonDiv {
+    margin-top: 15px;
+    display:flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    font-size: 18px
+}
+
+#yesButton:hover {
+    background-color: teal;
+}
+
+#noButton:hover {
+    background-color: grey;
+}

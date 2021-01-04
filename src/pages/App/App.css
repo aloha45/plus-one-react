@@ -4,6 +4,8 @@
 body {
   width: 100%;
   text-align: center;
+  background-image: url('/images/desktop-view.jpg');
+  background-size: cover
 }
 
 .App-logo {
@@ -42,9 +44,11 @@ body {
 }
 .nav {
   width: 100%;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 .nav-wrapper {
-  background-color: rgba(10, 168, 84, 0.692);
+  background-color: rgba(192, 106, 232, 0.742);
 }
 
 .material-icons {

@@ -1,9 +1,12 @@
 import React from 'react'
+import './Landing.css'
 
 function LandingPage(props){
         return ( 
             <React.Fragment>
-                <h1>{props.user.name} rules</h1>
+                <div className='title'>
+                    <h1>Plus One.</h1>
+                </div>
             </React.Fragment>
          );
 }

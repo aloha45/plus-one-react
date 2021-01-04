@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import './Card.css'
+
 class Card extends Component {
     state = { 
         picture: "",
@@ -40,7 +42,7 @@ class Card extends Component {
                 city: city,
                 age: age
                 }, () => {
-                console.log(this.state)
+                console.log('this is the state', this.state)
             })
         })
         .catch((err) => {
@@ -59,7 +61,7 @@ class Card extends Component {
             this.setState({
                 picture: picture
             }, () => {
-                console.log(this.state)
+                console.log('this is the state', this.state)
             })
         })
         .catch((err) => {
@@ -71,24 +73,20 @@ class Card extends Component {
         this.getProfilePic()
         this.getProfile()
     }
-
-    // testButton() {
-    //     const testState = this.state
-    //     console.log(testState)
-    // }
     
     render() { 
         return ( 
             <React.Fragment>
-                <h4>Dating Card goes here</h4>
-                <h4>{this.state.name}</h4>
-                <h4>{this.state.age}</h4>
-                <h4>{this.state.city}</h4>
-                <h4>{this.state.picture}</h4>
-                <div>
-                    <button onClick={this.handleYepClick}>Yep</button>
-                    <button onClick={this.handleNopeClick}>Nope</button>
-                    <button onClick={this.testButton}>Test</button>
+                <div className='card'>
+                    <img id='profilePic' src={this.state.picture} alt='profile pic' />
+                    <div id='profileData'>
+                        <h4>{this.state.name}, {this.state.age}</h4>
+                        <h4>{this.state.city}</h4>
+                    </div>
+                </div>
+                <div className='buttonDiv'>
+                    <button id='yesButton' onClick={this.handleYepClick}>Yep</button>
+                    <button id='noButton' onClick={this.handleNopeClick}>Nope</button>
                 </div>
             </React.Fragment>
          );

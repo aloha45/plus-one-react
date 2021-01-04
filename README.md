@@ -19,5 +19,5 @@ In 2019, 30.4 million users logged in to date online, and 25.1m of them did so f
 - React.js
 - Node.js
 - MongoDB
-- Passport
-- Express
+- Express.js
+- AWS Amplify
