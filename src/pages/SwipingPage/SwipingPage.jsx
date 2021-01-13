@@ -3,18 +3,15 @@ import NavBar from '../../components/NavBar/NavBar'
 import Landing from '../../components/LandingHeader/LandingHeader'
 import Card from '../../components/Card/Card'
 
-class SwipingPage extends Component {
-    state = {  }
-    render() { 
-        return ( 
-            <React.Fragment>
-                <NavBar />
-                <Landing />
-                <h1>Swiping Page</h1>
-                <Card />
-            </React.Fragment>
-         );
-    }
+const SwipingPage = (props) => {
+    return ( 
+        <React.Fragment>
+            <h1>Swiping Page</h1>
+            <Card 
+                handleYep={props.handleYep}
+                handleNope={props.handleNope}/>
+        </React.Fragment>
+     );
 }
  
 export default SwipingPage;

@@ -47,11 +47,13 @@ class App extends Component {
           handleLogout={this.handleLogout} />
         <LandingHeader
           user={this.state.user} />
-        <Card 
+        {/* <Card 
           handleYep={this.handleYep}
-          handleNope={this.handleNope} /> 
+          handleNope={this.handleNope} />  */}
+        <SwipingPage 
+          handleYep={this.handleYep}
+          handleNope={this.handleNope}/>
           </>
-        // {/* <SwipingPage /></> */}
           :
         <GreetingPage />
       }
@@ -71,6 +73,7 @@ class App extends Component {
         <Route exact path='/profile' render={({ history }) => 
           <ProfilePage
             history={history}
+            user={this.state.user}
           />
         }/>
       </>
