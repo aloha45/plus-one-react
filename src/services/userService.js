@@ -48,6 +48,10 @@ function logout() {
   tokenService.removeToken();
 }
 
+function save(newUser) {
+  
+}
+
 function login(creds) {
   return fetch(BASE_URL + 'login', {
     method: 'POST',
@@ -66,5 +70,6 @@ export default {
   signup,
   getUser,
   logout,
-  login
+  login,
+  save
 };

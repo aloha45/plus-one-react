@@ -16,10 +16,17 @@ class App extends Component {
     user: userService.getUser(),
   }
 
-  handleYep(profile) {
+  handleYep(newProfile) {
+    let userLike = userService.getUser()
+    userLike.yepArr.push(newProfile)
+    console.log('user like', userLike)
     // this.state.user.yepArr.push(profile)
     // console.log(this.state.user)
     // need to set state with new user profile array and also save in the database
+  }
+
+  saveUser() {
+
   }
 
   handleNope(profile) {
@@ -52,7 +59,8 @@ class App extends Component {
           handleNope={this.handleNope} />  */}
         <SwipingPage 
           handleYep={this.handleYep}
-          handleNope={this.handleNope}/>
+          handleNope={this.handleNope}
+          user={this.state.user}/>
           </>
           :
         <GreetingPage />

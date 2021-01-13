@@ -9,11 +9,28 @@ class Card extends Component {
         age: ""
      }
 
+     handleSaveProfile() {
+         const newProfile = {
+             picture: this.state.picture,
+             name: this.state.name,
+             city: this.state.city,
+             age: this.state.age
+         }
+         console.log('save profile', newProfile)
+     }
+
      handleYepClick = () => {
         const click = new Audio('audio/click.wav');
+        const newProfile = {
+            picture: this.state.picture,
+            name: this.state.name,
+            city: this.state.city,
+            age: this.state.age
+        }
         this.getProfilePic();
         this.getProfile();
-        this.props.handleYep();
+        this.props.handleYep(newProfile);
+        this.handleSaveProfile();
         //  click.play()
         console.log('yep', this.state)
      }
