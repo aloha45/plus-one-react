@@ -48,9 +48,14 @@ function logout() {
   tokenService.removeToken();
 }
 
-function save(newUser) {
-  
-}
+function save(updatedUser) {
+  return fetch(BASE_URL, {
+    method: 'PUT',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify(updatedUser)
+  })
+  .then(res => res.json())
+  }
 
 function login(creds) {
   return fetch(BASE_URL + 'login', {

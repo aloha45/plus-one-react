@@ -8,30 +8,20 @@ class Card extends Component {
         city: "",
         age: ""
      }
-
-     handleSaveProfile() {
-         const newProfile = {
-             picture: this.state.picture,
-             name: this.state.name,
-             city: this.state.city,
-             age: this.state.age
-         }
-         console.log('save profile', newProfile)
-     }
-
+     
      handleYepClick = () => {
         const click = new Audio('audio/click.wav');
-        const newProfile = {
+        const newProfile = { // this could probably be a sfc hook
             picture: this.state.picture,
             name: this.state.name,
             city: this.state.city,
             age: this.state.age
         }
+        this.props.handleYep(newProfile);
         this.getProfilePic();
         this.getProfile();
-        this.props.handleYep(newProfile);
-        this.handleSaveProfile();
         //  click.play()
+        console.log('saved profile', newProfile)
         console.log('yep', this.state)
      }
 
@@ -53,13 +43,10 @@ class Card extends Component {
             const name = data.results[0].name.first;
             const city = data.results[0].location.city;
             const age = data.results[0].dob.age;
-            // profiles.push(newProfile);
             this.setState({
-                name: name,
-                city: city,
-                age: age
-                }, () => {
-                console.log('this is the state', this.state)
+                name,
+                city,
+                age
             })
         })
         .catch((err) => {
@@ -74,12 +61,7 @@ class Card extends Component {
         })
         .then((data) => {
             const picture = data[parseInt(Math.floor(Math.random() * Math.floor(30)))].download_url;
-            // profiles.push(newProfile);
-            this.setState({
-                picture: picture
-            }, () => {
-                console.log('this is the state', this.state)
-            })
+            this.setState({ picture })
         })
         .catch((err) => {
             console.log(err)

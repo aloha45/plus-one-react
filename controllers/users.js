@@ -5,8 +5,13 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
-  login
+  login,
+  update
 };
+
+function update(req, res){
+  console.log('back end function hit')
+}
 
 async function signup(req, res) {
   const user = new User(req.body);
@@ -22,7 +27,6 @@ async function signup(req, res) {
 async function login(req, res) {
   try {
     const user = await User.findOne({email: req.body.email});
-    console.log(user)
     if (!user) return res.status(401).json({err: 'bad credentials'});
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {
