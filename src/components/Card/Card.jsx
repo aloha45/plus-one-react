@@ -10,7 +10,7 @@ class Card extends Component {
      }
      
      handleYepClick = () => {
-        const click = new Audio('audio/click.wav');
+        // const click = new Audio('audio/click.wav');
         const newProfile = { // this could probably be a sfc hook
             picture: this.state.picture,
             name: this.state.name,
@@ -21,8 +21,6 @@ class Card extends Component {
         this.getProfilePic();
         this.getProfile();
         //  click.play()
-        console.log('saved profile', newProfile)
-        console.log('yep', this.state)
      }
 
      handleNopeClick = () => {

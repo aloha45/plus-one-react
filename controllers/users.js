@@ -10,7 +10,10 @@ module.exports = {
 };
 
 function update(req, res){
-  console.log('back end function hit')
+  console.log('req.body', req.body)
+  User.findByIdAndUpdate(req.body._id, req.body, { new: true })
+  .then((user) => res.json(user))
+  .catch((err) => console.log(err))
 }
 
 async function signup(req, res) {

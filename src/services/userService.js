@@ -1,3 +1,4 @@
+import { token } from 'morgan';
 import tokenService from '../services/tokenService';
 const BASE_URL = '/api/users/';
 
@@ -51,7 +52,7 @@ function logout() {
 function save(updatedUser) {
   return fetch(BASE_URL, {
     method: 'PUT',
-    headers: new Headers({'Content-Type': 'application/json'}),
+    headers: new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer' + tokenService.getToken()}),
     body: JSON.stringify(updatedUser)
   })
   .then(res => res.json())

@@ -17,9 +17,9 @@ class App extends Component {
   }
 
   handleYep(newProfile) {
-    let userLike = userService.getUser()
+    const userLike = userService.getUser()
     userLike.yepArr.push(newProfile)
-    userService.save(newProfile)
+    userService.save(userLike)
     // need to set state with new user profile array and also save in the database
   }
   

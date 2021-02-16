@@ -5,10 +5,10 @@ const usersCtrl = require('../controllers/users');
 /*---------- Public Routes ----------*/
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
-router.put('/', usersCtrl.update)
 
 /*---------- Protected Routes ----------*/
 router.use(require('../config/auth'));
+router.put('/', checkAuth, usersCtrl.update)
 
 /*---------- Auth Checker ----------*/
 function checkAuth(req, res, next) {
