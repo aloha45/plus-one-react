@@ -24,7 +24,7 @@ class Card extends Component {
      }
 
      handleNopeClick = () => {
-        const snap = new Audio('audio/snap.wav');
+        // const snap = new Audio('audio/snap.wav');
         this.getProfilePic();
         this.getProfile();
         this.props.handleNope();

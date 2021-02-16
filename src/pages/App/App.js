@@ -16,10 +16,12 @@ class App extends Component {
     user: userService.getUser(),
   }
 
-  handleYep(newProfile) {
-    const userLike = userService.getUser()
+  handleYep = async newProfile => {
+    const userLike = this.state.user
     userLike.yepArr.push(newProfile)
-    userService.save(userLike)
+    await userService.save(userLike)
+    this.setState({ user: userLike })
+    console.log(this.state.user)
     // need to set state with new user profile array and also save in the database
   }
   
