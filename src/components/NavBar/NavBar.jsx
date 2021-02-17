@@ -8,8 +8,9 @@ const NavBar = ({ user, handleLogout }) => {
         <div className="nav-wrapper">
           <ul id="nav-mobile" className="right">
             <li><a href="/profile" className="nav-link">{user.name}'s Profile</a></li>
+            <li><a href="/matches" className="nav-link">{user.name}'s Matches</a></li>
             <li><a href=" " className="nav-link" onClick={handleLogout}>Log Out</a></li>
-            <li><a href='/' className="nav link logo">+ 1</a></li>
+            <li><a href='/swiping' className="nav link logo">+ 1</a></li>
           </ul>
         </div>
       </nav>

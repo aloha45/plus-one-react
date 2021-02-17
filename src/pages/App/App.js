@@ -9,6 +9,7 @@ import LandingHeader from '../../components/LandingHeader/LandingHeader';
 import Card from '../../components/Card/Card'
 import GreetingPage from '../GreetingPage/GreetingPage'
 import ProfilePage from '../ProfilePage/ProfilePage'
+import MatchesPage from '../MatchesPage/MatchesPage'
 import SwipingPage from '../SwipingPage/SwipingPage'
 
 class App extends Component {
@@ -43,21 +44,14 @@ class App extends Component {
   render () {
     return (
       <>
-      {this.state.user ? 
+      { this.state.user ? 
         <>
-        <NavBar 
-          user={this.state.user}
-          handleLogout={this.handleLogout} />
-        <LandingHeader
-          user={this.state.user} />
-        {/* <Card 
-          handleYep={this.handleYep}
-          handleNope={this.handleNope} />  */}
-        <SwipingPage 
-          handleYep={this.handleYep}
-          handleNope={this.handleNope}
-          user={this.state.user}/>
-          </>
+          <NavBar 
+            user={this.state.user}
+            handleLogout={this.handleLogout} />
+          <LandingHeader
+            user={this.state.user} />
+        </>
           :
         <GreetingPage />
       }
@@ -76,6 +70,19 @@ class App extends Component {
         }/>
         <Route exact path='/profile' render={({ history }) => 
           <ProfilePage
+            history={history}
+            user={this.state.user}
+          />
+        }/>
+        <Route exact path="/swiping" render={({ history }) =>
+          <SwipingPage 
+            handleYep={this.handleYep}
+            handleNope={this.handleNope}
+            user={this.state.user}
+            />
+          }/>
+        <Route exact path='/matches' render={({ history }) => 
+          <MatchesPage
             history={history}
             user={this.state.user}
           />
