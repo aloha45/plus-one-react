@@ -1,9 +1,22 @@
 import React from 'react';
+import './MatchesPage.css'
 
-const MatchesPage = () => {
-    return ( 
+const MatchesPage = (props) => {
+    if (props.user) return ( 
         <>
-            <h1>Cory rules</h1>
+            <p className="matchTitle">Click on a match to message them!</p>
+            <main>
+                <div className="container">
+                    {props.user.yepArr.map(p =>
+                    <>
+                    <div className="matchCard">
+                        <img src={p.picture}></img>
+                        <p>{p.name}</p>
+                    </div>
+                    </>
+                    )}
+                </div>
+            </main>
         </>
      );
 }
