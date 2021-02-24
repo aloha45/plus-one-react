@@ -22,3 +22,8 @@ In 2019, 30.4 million users logged in to date online, and 25.1m of them did so f
 - Express.js
 - Styled Components
 - Heroku
+
+## Currently Developing ##
+
+- Instant messaging with socket.io
+- Swipe as a guest
