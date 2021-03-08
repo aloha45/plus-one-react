@@ -1,0 +1,28 @@
+.matchCard {
+    background-color: white;
+    width: 400px;
+    height: 100px;
+    align-items: center;
+    display: flex;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container {
+    align-items: center;
+    display: flex
+}
+
+img {
+    width: auto;
+    height: 100px;
+}
+
+p {
+    margin-left: 10px;
+}
+
+.matchTitle {
+    color: white
+}

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
@@ -6,13 +6,14 @@ import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
 import LandingHeader from '../../components/LandingHeader/LandingHeader';
-import SwipingPageGuest from '../../pages/SwipingPageGuest/SwipingPageGuest'
+import SwipingPageGuest from '../SwipingPageGuest/SwipingPageGuest'
 import GreetingPage from '../GreetingPage/GreetingPage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import MatchesPage from '../MatchesPage/MatchesPage'
+import MatchesPageGuest from '../MatchesPageGuest/MatchesPageGuest'
 import SwipingPage from '../SwipingPage/SwipingPage'
 
-class App extends PureComponent {
+class App extends Component {
   state = {
     user: userService.getUser(),
     guest: {
@@ -38,9 +39,7 @@ class App extends PureComponent {
   }
   
   handleNope(profile) {
-    // this.state.user.nopeArr.push(profile)
-    // console.log(this.state.user)
-    // need to set state with new user profile array and also save in the database
+    console.log(profile)
   }
 
   handleLogout = () => {
@@ -67,6 +66,8 @@ class App extends PureComponent {
         <GreetingPage />
       }
 
+
+{/* ROUTES GO HERE */}
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
             history={history}
@@ -101,8 +102,15 @@ class App extends PureComponent {
         <Route exact path='/guest' render={({ history }) => 
           <SwipingPageGuest
             handleYep={this.handleGuestYep}
+            handleNope={this.handleNope}
             guest={this.state.guest}
             history={history}
+          />
+        }/>
+        <Route exact path='/matches-guest' render={({ history }) => 
+          <MatchesPageGuest
+            history={history}
+            guest={this.state.guest}
           />
         }/>
       </>

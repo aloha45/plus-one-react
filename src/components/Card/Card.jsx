@@ -11,13 +11,13 @@ class Card extends Component {
      
      handleYepClick = () => {
         // const click = new Audio('audio/click.wav');
-        const newProfile = { // this could probably be a sfc hook
+        const yepProfile = { // this could probably be a sfc hook
             picture: this.state.picture,
             name: this.state.name,
             city: this.state.city,
             age: this.state.age
         }
-        this.props.handleYep(newProfile);
+        this.props.handleYep(yepProfile);
         this.getProfilePic();
         this.getProfile();
         //  click.play()
@@ -25,11 +25,16 @@ class Card extends Component {
 
      handleNopeClick = () => {
         // const snap = new Audio('audio/snap.wav');
+        const nopeProfile = { // this could probably be a sfc hook
+            picture: this.state.picture,
+            name: this.state.name,
+            city: this.state.city,
+            age: this.state.age
+        }
+        this.props.handleNope(nopeProfile);
         this.getProfilePic();
         this.getProfile();
-        this.props.handleNope();
         // snap.play()
-        console.log('nope', this.state)
     }
 
      async getProfile(){
