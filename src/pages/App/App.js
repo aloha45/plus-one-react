@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Route } from 'react-router-dom'
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
@@ -6,15 +6,19 @@ import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
 import LandingHeader from '../../components/LandingHeader/LandingHeader';
-import Card from '../../components/Card/Card'
+import SwipingPageGuest from '../../pages/SwipingPageGuest/SwipingPageGuest'
 import GreetingPage from '../GreetingPage/GreetingPage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import MatchesPage from '../MatchesPage/MatchesPage'
 import SwipingPage from '../SwipingPage/SwipingPage'
 
-class App extends Component {
+class App extends PureComponent {
   state = {
     user: userService.getUser(),
+    guest: {
+      yepArr: [],
+      id: "guest",
+    }
   }
 
   handleYep = async newProfile => {
@@ -24,6 +28,13 @@ class App extends Component {
     this.setState({ user: userLike })
     console.log(this.state.user)
     // need to set state with new user profile array and also save in the database
+  }
+
+  handleGuestYep = async newProfile => {
+    const guestLike = this.state.guest
+    guestLike.yepArr.push(newProfile)
+    this.setState({ guest: guestLike })
+    console.log(this.state.guest)
   }
   
   handleNope(profile) {
@@ -85,6 +96,13 @@ class App extends Component {
           <MatchesPage
             history={history}
             user={this.state.user}
+          />
+        }/>
+        <Route exact path='/guest' render={({ history }) => 
+          <SwipingPageGuest
+            handleYep={this.handleGuestYep}
+            guest={this.state.guest}
+            history={history}
           />
         }/>
       </>

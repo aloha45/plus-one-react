@@ -4,7 +4,7 @@ import './MatchesPage.css'
 const MatchesPage = (props) => {
     if (props.user) return ( 
         <>
-            <p className="matchTitle">Click on a match to message them!</p>
+            {/* <p className="matchTitle">Click on a match to message them!</p> */}
             <main>
                 <div className="container">
                     {props.user.yepArr.map(p =>

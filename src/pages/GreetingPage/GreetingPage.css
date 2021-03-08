@@ -19,6 +19,6 @@ a {
 
 a:hover {
     background-color: white;
-    color: fuchsia;
+    color: rgba(192, 106, 232, 0.742);
     border-radius: 10px;
 }
