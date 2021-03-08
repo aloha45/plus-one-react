@@ -10,7 +10,7 @@ import SwipingPageGuest from '../SwipingPageGuest/SwipingPageGuest'
 import GreetingPage from '../GreetingPage/GreetingPage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import MatchesPage from '../MatchesPage/MatchesPage'
-import MatchesPageGuest from '../MatchesPageGuest/MatchesPageGuest'
+import MatchesPageGuest from '../../components/MatchesGuest/MatchesGuest'
 import SwipingPage from '../SwipingPage/SwipingPage'
 
 class App extends Component {
@@ -42,6 +42,13 @@ class App extends Component {
   
   handleNope(profile) {
     console.log(profile)
+  }
+
+  handleUpdatePic = async newPic => {
+    const userProfile = this.state.user;
+    userProfile.picture = newPic;
+    await userService.save(userProfile)
+    this.setState({ user: userProfile })
   }
 
   handleLogout = () => {
@@ -86,6 +93,7 @@ class App extends Component {
           <ProfilePage
             history={history}
             user={this.state.user}
+            handleUpdatePic={this.handleUpdatePic}
           />
         }/>
         <Route exact path="/swiping" render={({ history }) =>

@@ -1,6 +1,7 @@
 import React from 'react';
-import MatchesPageGuest from '../MatchesPageGuest/MatchesPageGuest'
-import Card from '../../components/Card/Card'
+import './SwipingPageGuest.css'
+import MatchesPageGuest from '../../components/MatchesGuest/MatchesGuest';
+import Card from '../../components/Card/Card';
 
 const SwipingPageGuest = (props) => {
 
@@ -9,6 +10,7 @@ const SwipingPageGuest = (props) => {
             <Card 
                 handleYep={props.handleYep}
                 handleNope={props.handleNope}/>
+            <p className="guest-matches">Guest Matches</p>
             <MatchesPageGuest 
                 guest={props.guest}/>
         </React.Fragment>

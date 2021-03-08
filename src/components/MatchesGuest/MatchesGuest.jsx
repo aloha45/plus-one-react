@@ -1,5 +1,5 @@
 import React from 'react';
-import './MatchesPageGuest.css'
+import './MatchesGuest.css'
 
 const MatchesPageGuest = (props) => {
     if (props.guest) return ( 

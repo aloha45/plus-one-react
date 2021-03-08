@@ -2,12 +2,14 @@
     display: flex;
     text-align: left;
     margin: 0 auto;
-    background-color: lavender;
+    background-color: #FEF0FF;
     width: 600px
 }
 
 button {
-    width: 100px
+    width: 100px;
+    border-radius: 10px;
+    border: 2px solid #FEF0FF;
 }
 
 #profilePic {
@@ -21,17 +23,16 @@ button {
 }
 
 .buttonDiv {
-    margin-top: 15px;
+    margin: 15px 0px;
     display:flex;
     justify-content: space-evenly;
-    border-radius: 10px;
     font-size: 18px;
 }
 
 #yesButton:hover {
-    background-color: teal;
+    background-color: #7E6BC4;
 }
 
 #noButton:hover {
-    background-color: teal;
+    background-color: #C79ECF;
 }

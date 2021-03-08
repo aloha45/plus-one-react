@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
   nopeArr: [String],
-  yepArr: [Object]
+  yepArr: [Object],
+  picture: String
 }, {
   timestamps: true
 });
