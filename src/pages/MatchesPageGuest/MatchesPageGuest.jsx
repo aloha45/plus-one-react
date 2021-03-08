@@ -5,7 +5,6 @@ const MatchesPageGuest = (props) => {
     if (props.guest) return ( 
         <>
             {/* <p className="matchTitle">Click on a match to message them!</p> */}
-            <main>
                 <div className="container">
                     {props.guest.yepArr.map(p =>
                     <>
@@ -16,7 +15,6 @@ const MatchesPageGuest = (props) => {
                     </>
                     )}
                 </div>
-            </main>
         </>
      )
     return <p className="matchTitle">Go swipe to make some matches!</p>;

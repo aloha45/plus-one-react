@@ -15,7 +15,9 @@ import SwipingPage from '../SwipingPage/SwipingPage'
 
 class App extends Component {
   state = {
-    user: userService.getUser(),
+    user: 
+      // "",
+      userService.getUser(),
     guest: {
       yepArr: [],
       id: "guest",
