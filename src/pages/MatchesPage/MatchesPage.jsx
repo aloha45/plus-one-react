@@ -18,7 +18,8 @@ const MatchesPage = (props) => {
                 </div>
             </main>
         </>
-     );
+     )
+    return <p className="matchTitle">Go swipe to make some matches!</p>;
 }
  
 export default MatchesPage;

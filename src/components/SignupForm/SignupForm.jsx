@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './SignupForm.css'
 import userService from '../../services/userService';
 
 class SignupForm extends Component {
@@ -35,7 +36,7 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="SignupCard">
         <h3>Sign Up</h3>
         <form className="col s12" autoComplete="off" onSubmit={this.handleSubmit} >
           <div className="row">
