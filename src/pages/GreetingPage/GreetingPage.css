@@ -3,5 +3,22 @@
 }
 
 .greetingTitle{
-    color: white
+    color: white;
+    height: 145px;
+}
+
+.greeting-choices {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+
+a {
+    padding: 3px;
+}
+
+a:hover {
+    background-color: white;
+    color: rgba(192, 106, 232, 0.742);
+    border-radius: 10px;
 }

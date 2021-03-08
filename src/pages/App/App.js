@@ -6,15 +6,22 @@ import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
 import LandingHeader from '../../components/LandingHeader/LandingHeader';
-import Card from '../../components/Card/Card'
+import SwipingPageGuest from '../SwipingPageGuest/SwipingPageGuest'
 import GreetingPage from '../GreetingPage/GreetingPage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import MatchesPage from '../MatchesPage/MatchesPage'
+import MatchesPageGuest from '../../components/MatchesGuest/MatchesGuest'
 import SwipingPage from '../SwipingPage/SwipingPage'
 
 class App extends Component {
   state = {
-    user: userService.getUser(),
+    user: 
+      // "",
+      userService.getUser(),
+    guest: {
+      yepArr: [],
+      id: "guest",
+    }
   }
 
   handleYep = async newProfile => {
@@ -25,11 +32,23 @@ class App extends Component {
     console.log(this.state.user)
     // need to set state with new user profile array and also save in the database
   }
+
+  handleGuestYep = async newProfile => {
+    const guestLike = this.state.guest
+    guestLike.yepArr.push(newProfile)
+    this.setState({ guest: guestLike })
+    console.log(this.state.guest)
+  }
   
   handleNope(profile) {
-    // this.state.user.nopeArr.push(profile)
-    // console.log(this.state.user)
-    // need to set state with new user profile array and also save in the database
+    console.log(profile)
+  }
+
+  handleUpdatePic = async newPic => {
+    const userProfile = this.state.user;
+    userProfile.picture = newPic;
+    await userService.save(userProfile)
+    this.setState({ user: userProfile })
   }
 
   handleLogout = () => {
@@ -56,6 +75,8 @@ class App extends Component {
         <GreetingPage />
       }
 
+
+{/* ROUTES GO HERE */}
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
             history={history}
@@ -72,6 +93,7 @@ class App extends Component {
           <ProfilePage
             history={history}
             user={this.state.user}
+            handleUpdatePic={this.handleUpdatePic}
           />
         }/>
         <Route exact path="/swiping" render={({ history }) =>
@@ -85,6 +107,20 @@ class App extends Component {
           <MatchesPage
             history={history}
             user={this.state.user}
+          />
+        }/>
+        <Route exact path='/guest' render={({ history }) => 
+          <SwipingPageGuest
+            handleYep={this.handleGuestYep}
+            handleNope={this.handleNope}
+            guest={this.state.guest}
+            history={history}
+          />
+        }/>
+        <Route exact path='/matches-guest' render={({ history }) => 
+          <MatchesPageGuest
+            history={history}
+            guest={this.state.guest}
           />
         }/>
       </>

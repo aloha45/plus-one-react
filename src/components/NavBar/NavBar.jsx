@@ -22,6 +22,7 @@ const NavBar = ({ user, handleLogout }) => {
           <ul id="nav-mobile" className="right">
             <li><a href="/login" className="nav-link">Log In</a></li>
             <li><a href="/signup" className="nav-link">Sign Up</a></li>
+            <li><a href="/guest" className="nav-link">Swipe as a Guest</a></li>
           </ul>
         </div>
       </nav>

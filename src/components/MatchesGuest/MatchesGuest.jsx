@@ -1,13 +1,12 @@
 import React from 'react';
-import './MatchesPage.css'
+import './MatchesGuest.css'
 
-const MatchesPage = (props) => {
-    if (props.user) return ( 
+const MatchesPageGuest = (props) => {
+    if (props.guest) return ( 
         <>
             {/* <p className="matchTitle">Click on a match to message them!</p> */}
-            <main>
                 <div className="container">
-                    {props.user.yepArr.map(p =>
+                    {props.guest.yepArr.map(p =>
                     <>
                     <div className="matchCard">
                         <img src={p.picture}></img>
@@ -16,10 +15,9 @@ const MatchesPage = (props) => {
                     </>
                     )}
                 </div>
-            </main>
         </>
      )
     return <p className="matchTitle">Go swipe to make some matches!</p>;
 }
  
-export default MatchesPage;
+export default MatchesPageGuest;

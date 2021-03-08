@@ -1,0 +1,8 @@
+.guest-matches {
+    font-size: 32px;
+    border-radius: 10px;
+    background-color: #FEF0FF;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0px 5px;
+}
