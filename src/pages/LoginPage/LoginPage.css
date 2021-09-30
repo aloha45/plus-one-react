@@ -5,7 +5,15 @@
     align-items: center;
     margin-bottom: 50px;
     background-color: whitesmoke;
-    width: 500px;
+    width: 300px;
     border-radius: 10px;
     margin: 10px auto;
   }
+
+.green {
+  background-color: #039be5 !important;
+}
+
+.red {
+  background-color: #C79ECF !important
+}

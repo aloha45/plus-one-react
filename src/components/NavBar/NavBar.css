@@ -2,3 +2,7 @@
     align-items: left;
     float: left
 }
+
+a {
+    width: 200px;
+}
